@@ -1,3 +1,7 @@
+-- create table bkp_vehicledb; ??
+-- BACKUP DATABASE "databasename" ??
+-- TO DISK = 'filepath'; ??
+
 CREATE SCHEMA IF NOT EXISTS vehicledb;
 USE vehicledb;
 
@@ -5,7 +9,7 @@ DROP TABLE IF EXISTS brand;
 CREATE TABLE brand (
 id_brand INT NOT NULL AUTO_INCREMENT 
 , description VARCHAR(50) NOT NULL 
-, PRIMARY KEY (id_brand));
+, CONSTRAINT PRIMARY KEY (id_brand)); -- REVISAR LO DE CONSTRAINT EN LA DOCUMENTACION Y VES SI SE LO TENGO Q AGREGAR A TODAS LA PK 
 
 DROP TABLE IF EXISTS model;
 create table model (
@@ -29,7 +33,7 @@ DROP TABLE IF EXISTS feature;
 CREATE TABLE feature (
 id_feature INT NOT NULL AUTO_INCREMENT 
 , description varchar(45) not null
-, PRIMARY KEY (id_feature));
+, CONSTRAINT PRIMARY KEY (id_feature));
 
 
 DROP TABLE IF EXISTS variant_feature;
@@ -45,7 +49,7 @@ DROP TABLE IF EXISTS fuel;
 CREATE TABLE fuel (
 id_fuel INT NOT NULL AUTO_INCREMENT 
 , description varchar(45) not null
-, PRIMARY KEY (id_fuel));
+, CONSTRAINT PRIMARY KEY (id_fuel));
 
 DROP TABLE IF EXISTS engine;
 CREATE TABLE engine (
@@ -67,3 +71,5 @@ id_variant INT NOT NULL
 , foreign key (id_variant) references variant (id_variant)
 , foreign key (id_engine) references engine (id_engine)
 );
+
+-- agregar mas tablas 

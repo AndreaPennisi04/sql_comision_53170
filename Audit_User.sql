@@ -1,0 +1,8 @@
+DROP SCHEMA IF EXISTS
+Audit_User;
+
+CREATE SCHEMA IF NOT EXISTS
+Audit_User;
+
+USE Audit_User;
+
