@@ -123,7 +123,7 @@ left join engine on engine.id_engine = engine_variant.id_engine
 left join fuel on fuel.id_fuel = engine.id_fuel
 left join variant_feature on variant_feature.id_variant = variant.id_variant
 -- left join feature on feature.id_feature = variant_feature.id_feature
-ORDER BY variant.id_variant;
+ORDER BY brand.description;
 
 */ 
 -- ---------------------------------------------------

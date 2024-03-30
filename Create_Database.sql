@@ -1,17 +1,17 @@
--- create table bkp_vehicledb; ??
--- BACKUP DATABASE "databasename" ??
--- TO DISK = 'filepath'; ??
+DROP SCHEMA IF EXISTS
+vehicledb;
 
-CREATE SCHEMA IF NOT EXISTS vehicledb;
+CREATE SCHEMA IF NOT EXISTS
+vehicledb;
+
 USE vehicledb;
-
-DROP TABLE IF EXISTS brand; 
+-- DROP TABLE IF EXISTS brand;
 CREATE TABLE brand (
 id_brand INT NOT NULL AUTO_INCREMENT 
 , description VARCHAR(50) NOT NULL 
-, CONSTRAINT PRIMARY KEY (id_brand)); -- REVISAR LO DE CONSTRAINT EN LA DOCUMENTACION Y VES SI SE LO TENGO Q AGREGAR A TODAS LA PK 
+, PRIMARY KEY (id_brand));
 
-DROP TABLE IF EXISTS model;
+-- DROP TABLE IF EXISTS model;
 create table model (
 id_model INT NOT NULL AUTO_INCREMENT
 , description varchar(45) not null
@@ -20,7 +20,7 @@ id_model INT NOT NULL AUTO_INCREMENT
 , foreign key (id_brand) references brand (id_brand)
 );
 
-DROP TABLE IF EXISTS variant;
+-- DROP TABLE IF EXISTS variant;
 create table variant (
 id_variant INT NOT NULL AUTO_INCREMENT
 , description varchar(45) not null
@@ -29,14 +29,14 @@ id_variant INT NOT NULL AUTO_INCREMENT
 , foreign key (id_model) references model (id_model)
 );
 
-DROP TABLE IF EXISTS feature;
+-- DROP TABLE IF EXISTS feature;
 CREATE TABLE feature (
 id_feature INT NOT NULL AUTO_INCREMENT 
 , description varchar(45) not null
-, CONSTRAINT PRIMARY KEY (id_feature));
+, PRIMARY KEY (id_feature));
 
 
-DROP TABLE IF EXISTS variant_feature;
+-- DROP TABLE IF EXISTS variant_feature;
 create table variant_feature(
 id_variant INT NOT NULL 
 , id_feature INT NOT NULL 
@@ -45,13 +45,13 @@ id_variant INT NOT NULL
 , foreign key (id_feature) references feature (id_feature)
 );
 	 
-DROP TABLE IF EXISTS fuel; 
+-- DROP TABLE IF EXISTS fuel; 
 CREATE TABLE fuel (
 id_fuel INT NOT NULL AUTO_INCREMENT 
 , description varchar(45) not null
-, CONSTRAINT PRIMARY KEY (id_fuel));
+, PRIMARY KEY (id_fuel));
 
-DROP TABLE IF EXISTS engine;
+-- DROP TABLE IF EXISTS engine;
 CREATE TABLE engine (
 id_engine INT NOT NULL AUTO_INCREMENT 
 , description varchar(75)
@@ -63,7 +63,7 @@ id_engine INT NOT NULL AUTO_INCREMENT
 , PRIMARY KEY (id_engine)
 , FOREIGN KEY (id_fuel) references fuel (id_fuel));
 
-DROP TABLE IF EXISTS engine_variant;
+-- DROP TABLE IF EXISTS engine_variant;
 Create table engine_variant (
 id_variant INT NOT NULL
 , id_engine INT NOT NULL  
@@ -72,4 +72,3 @@ id_variant INT NOT NULL
 , foreign key (id_engine) references engine (id_engine)
 );
 
--- agregar mas tablas 

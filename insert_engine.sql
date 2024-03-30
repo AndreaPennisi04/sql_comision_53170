@@ -62,26 +62,28 @@ INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (
 */
 
 -- Lamborghini (First inserts)
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (8, '3996', '650', 'Semi-Automatic', 1); -- URUS
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (8, '3996', '666', 'Semi-Automatic', 1); -- Urus S
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (8, '3996', '666', 'Semi-Automatic', 1); -- Urus Performante
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '378', 'Automatic', 1); -- Aventator
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '740', 'Manual', 1); -- Aventator Roadster
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '740', 'Manual', 1); -- Aventator S
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '740', 'Automatic Tiptronic', 1); -- Aventator SV
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '750', 'Semi-Automatic', 1); -- Aventator SV Roadster
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '566', 'Automatic Tiptronic', 1); -- Aventator SVJ
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '770', 'Semi-Automatic', 1); -- Aventator SVJ Roadster
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '780', 'Automatic', 1); -- Aventator LP 780-4 Ultimate
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '580', 'Automatic', 1); -- Huracán
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '610', 'Semi-Automatic', 1); -- Huracán Spyder
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '610', 'Automatic Tiptronic', 1); -- Huracán RWD
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '640', 'DCT', 1); -- Huracán Performante
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '640', 'Automatic', 1); -- Huracán EVO
--- INSERT INTO engine (description, cylinders, capacity, power, transmission, id_fuel ) VALUES ('V10, 90°, MPI + Direct Stratified Injection', 10, '5204', '630', 'DCT', 1); -- Huracán EVO STO
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '610', 'Semi-Automatic', 1); -- Huracán Sterrato
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '4961', '552', 'Semi-Automatic', 1); -- Gallardo
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '4961', '552', 'Semi-Automatic', 1); -- Gallardo Spyder
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '4961', '552', 'Automatic', 1); -- Heritage
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '770', 'Semi-Automatic', 1); -- Centenario Roadster
--- INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '770', 'Semi-Automatic', 1); -- Sián FKP 37
+/*
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (8, '3996', '650', 'Semi-Automatic', 1); -- URUS
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (8, '3996', '666', 'Semi-Automatic', 1); -- Urus S
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (8, '3996', '666', 'Semi-Automatic', 1); -- Urus Performante
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '378', 'Automatic', 1); -- Aventator
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '740', 'Manual', 1); -- Aventator Roadster
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '740', 'Manual', 1); -- Aventator S
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '740', 'Automatic Tiptronic', 1); -- Aventator SV
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '750', 'Semi-Automatic', 1); -- Aventator SV Roadster
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '566', 'Automatic Tiptronic', 1); -- Aventator SVJ
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '770', 'Semi-Automatic', 1); -- Aventator SVJ Roadster
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '780', 'Automatic', 1); -- Aventator LP 780-4 Ultimate
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '580', 'Automatic', 1); -- Huracán
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '610', 'Semi-Automatic', 1); -- Huracán Spyder
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '610', 'Automatic Tiptronic', 1); -- Huracán RWD
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '640', 'DCT', 1); -- Huracán Performante
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '640', 'Automatic', 1); -- Huracán EVO
+INSERT INTO engine (description, cylinders, capacity, power, transmission, id_fuel ) VALUES ('V10, 90°, MPI + Direct Stratified Injection', 10, '5204', '630', 'DCT', 1); -- Huracán EVO STO
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '5204', '610', 'Semi-Automatic', 1); -- Huracán Sterrato
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '4961', '552', 'Semi-Automatic', 1); -- Gallardo
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '4961', '552', 'Semi-Automatic', 1); -- Gallardo Spyder
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (10, '4961', '552', 'Automatic', 1); -- Heritage
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '770', 'Semi-Automatic', 1); -- Centenario Roadster
+INSERT INTO engine (cylinders, capacity, power, transmission, id_fuel ) VALUES (12, '6498', '770', 'Semi-Automatic', 1); -- Sián FKP 37
+*/

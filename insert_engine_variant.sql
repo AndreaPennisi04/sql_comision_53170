@@ -57,25 +57,27 @@ insert into engine_variant (id_engine, id_variant) values (85, 72); -- 599 GTO 1
 */
 
 -- Lamborghini
--- insert into engine_variant (id_engine, id_variant) values (1,4); -- URUS
--- insert into engine_variant (id_engine, id_variant) values (2,5); -- Urus S
--- insert into engine_variant (id_engine, id_variant) values (2,6); -- Urus Performante
--- insert into engine_variant (id_engine, id_variant) values (5,7); -- 7 Aventator
--- insert into engine_variant (id_engine, id_variant) values (6,9); -- 9 Aventator S
--- insert into engine_variant (id_engine, id_variant) values (9,10); -- 10 Aventator SV
--- insert into engine_variant (id_engine, id_variant) values (1,11) -- 11 Aventator SV Roadster
--- insert into engine_variant (id_engine, id_variant) values (1,12) -- 12 Aventator SVJ 
--- insert into engine_variant (id_engine, id_variant) values (1,13) -- 13 Aventator SVJ Roadster
--- insert into engine_variant (id_engine, id_variant) values (1,14) -- 14 Aventator LP 780-4 Ultimate
--- insert into engine_variant (id_engine, id_variant) values (1,15) -- 15 Huracán
--- insert into engine_variant (id_engine, id_variant) values (1,16) -- 16 Huracán Spyder
--- insert into engine_variant (id_engine, id_variant) values (1,17) -- 17 Huracán RWD
--- insert into engine_variant (id_engine, id_variant) values (1,18) -- 18 Huracán Performante
--- insert into engine_variant (id_engine, id_variant) values (1,19) -- 19 Huracán EVO 
--- insert into engine_variant (id_engine, id_variant) values (1,20) -- 20 Huracán EVO STO
--- insert into engine_variant (id_engine, id_variant) values (1,21) -- 21 Huracán Sterrato
--- insert into engine_variant (id_engine, id_variant) values (1,22) -- 22 Gallardo
--- insert into engine_variant (id_engine, id_variant) values (1,23) -- 23 Gallardo Spyder
--- insert into engine_variant (id_engine, id_variant) values (1,24) -- 24 Heritage
--- insert into engine_variant (id_engine, id_variant) values (1,25) -- 25 Centenario Roadster
--- insert into engine_variant (id_engine, id_variant) values (1,26) -- 26 Sián FKP 37
+/*
+insert into engine_variant (id_engine, id_variant) values (1,4); -- URUS
+insert into engine_variant (id_engine, id_variant) values (2,5); -- Urus S
+insert into engine_variant (id_engine, id_variant) values (2,6); -- Urus Performante
+insert into engine_variant (id_engine, id_variant) values (5,7); -- 7 Aventator
+insert into engine_variant (id_engine, id_variant) values (6,9); -- 9 Aventator S
+insert into engine_variant (id_engine, id_variant) values (9,10); -- 10 Aventator SV
+insert into engine_variant (id_engine, id_variant) values (1,11) -- 11 Aventator SV Roadster
+insert into engine_variant (id_engine, id_variant) values (1,12) -- 12 Aventator SVJ 
+insert into engine_variant (id_engine, id_variant) values (1,13) -- 13 Aventator SVJ Roadster
+insert into engine_variant (id_engine, id_variant) values (1,14) -- 14 Aventator LP 780-4 Ultimate
+insert into engine_variant (id_engine, id_variant) values (1,15) -- 15 Huracán
+insert into engine_variant (id_engine, id_variant) values (1,16) -- 16 Huracán Spyder
+insert into engine_variant (id_engine, id_variant) values (1,17) -- 17 Huracán RWD
+insert into engine_variant (id_engine, id_variant) values (1,18) -- 18 Huracán Performante
+insert into engine_variant (id_engine, id_variant) values (1,19) -- 19 Huracán EVO 
+insert into engine_variant (id_engine, id_variant) values (1,20) -- 20 Huracán EVO STO
+insert into engine_variant (id_engine, id_variant) values (1,21) -- 21 Huracán Sterrato
+insert into engine_variant (id_engine, id_variant) values (1,22) -- 22 Gallardo
+insert into engine_variant (id_engine, id_variant) values (1,23) -- 23 Gallardo Spyder
+insert into engine_variant (id_engine, id_variant) values (1,24) -- 24 Heritage
+insert into engine_variant (id_engine, id_variant) values (1,25) -- 25 Centenario Roadster
+insert into engine_variant (id_engine, id_variant) values (1,26) -- 26 Sián FKP 37
+*/
