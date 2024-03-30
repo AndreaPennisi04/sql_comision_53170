@@ -1,38 +1,46 @@
 USE vehicledb; 
 /*
 Function fue creada para traer un valor. 
-1. FN_EXPECIFIC_fuel_description: pasando los parametros correspondientes puedo saber cual de los tipos de fuel existen en mi tabla 
+1. FN_count_fuel_models: pasando los parametros correspondientes puedo saber cuantos vehiculos hay en total con un fuel pasado por parametro
 2. FN_variant_description: enviando el numero de id de la variante y el modelo puedo saber que variante de modelo esta listado. 
 3. FN_by_model_name: por el nombre del modelo, puedo consultar cuantos tengo listado segun el parametro que le pase. 
 */
 -- First Function 
-DROP FUNCTION IF EXISTS FN_EXPECIFIC_fuel_description;
-DELIMITER // 
-create function FN_EXPECIFIC_fuel_description (P_1 INT)
+DROP FUNCTION IF EXISTS FN_count_fuel_models;
+DELIMITER //
 
-returns varchar(45)
-deterministic
-begin
-declare fuel_description_name varchar(45);
+CREATE FUNCTION FN_count_fuel_models(p1 VARCHAR(50))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE total INT;
+    
+    SELECT COUNT(m.id_model) 
+    INTO total
+    FROM model m
+    JOIN variant v ON m.id_model = v.id_model
+    JOIN engine_variant ev ON v.id_variant = ev.id_variant
+    JOIN engine e ON ev.id_engine = e.id_engine
+    JOIN fuel f ON e.id_fuel = f.id_fuel
+    WHERE f.description = p1;
+    
+    RETURN total;
+END //
 
-select  description
-into  fuel_description_name
-from fuel
-where id_fuel = p_1;
+DELIMITER ;
 
 
- return fuel_description_name;
-  end//
-  delimiter ;
--- NOTA: EL REQUEST ORIGINAL ME TRAE MODELOS DB PERO CUANDO LO APLICO EN LA FUNCION, SOLO ME DEVUELVE UN "OK"
--- 11:05:35	SELECT FN_EXPECIFIC_MODEL('DBS coupe', 18) AS v_especific_model	Error Code: 1318. Incorrect number of arguments for FUNCTION vehicledb.FN_EXPECIFIC_MODEL; expected 1, got 2	0.00062 sec
 -- Invocacion de la funcion 
-SELECT FN_EXPECIFIC_fuel_description(17) AS fuel_description_name;
+select FN_count_fuel_models('petrol') as v_total;
 
--- Original request
-select * from fuel
-where description like 'Electric'
-and id_fuel = 17;
+-- Original request 
+SELECT COUNT(m.id_model) as total_fuel_model
+FROM model m
+JOIN variant as v ON m.id_model = v.id_model
+JOIN engine_variant as ev ON v.id_variant = ev.id_variant
+JOIN engine as e ON ev.id_engine = e.id_engine
+JOIN fuel as f ON e.id_fuel = f.id_fuel
+WHERE f.description = 'Petrol';*/
 
 -- -- Segunda funcion  
 DROP FUNCTION IF EXISTS FN_variant_description;
