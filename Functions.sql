@@ -94,3 +94,4 @@ select FN_by_model_name('%DB_%');
 -- Original syntaxis 
 Select count(*) from model
 where description like '%DB_%'
+

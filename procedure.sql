@@ -1,6 +1,8 @@
 USE vehicledb; 
 
--- First Procedures: Lenght of MODEL
+-- First Procedures: Lenght of MODEL. 
+-- Enviando los parametros correspondientes podre saber cuantos modelos obtengo por cada parametro enviado. 
+-- Tabla que la compone: Model description 
 DROP PROCEDURE IF EXISTS SP_model;
 DELIMITER $$
 
@@ -21,38 +23,35 @@ CALL SP_model('GT',@quantity_GT);
 CALL SP_model('ur',@quantity_ur);	
 select @quantity_ave as model_name_with_ave,@quantity_DB,@quantity_GT,@quantity_ur;
 
+select * from model;
+
 -- -------------------------------------
--- Second Procedures: SQL dinamico
-
-DROP PROCEDURE IF EXISTS  SP_order_by_engine;
-
+-- Second Procedures: En este ejemplo es saber a travez de "trasnmission" que modelos pertenecen al parametro pasado.
+-- Tablas que la componen: Model y Engine 
+DROP PROCEDURE IF EXISTS  SP_GetModelByTransmission;
 DELIMITER $$
-CREATE PROCEDURE SP_order_by_engine (IN p_transmission char(45), out p_out char(45))
-BEGIN
-set @p_out= concat(
-'SELECT * 
-FROM engine
-ORDER BY  ', p_transmission , ' ', p_asc_desc ) ;
 
+CREATE PROCEDURE SP_GetModelByTransmission (IN p_transmission VARCHAR(50))
+BEGIN
+    SELECT m.description AS model_description
+    FROM engine e
+    INNER JOIN model m ON e.id_engine = m.id_model
+    WHERE e.transmission = p_transmission;
 END$$
 
 DELIMITER ;
 
-CALL SP_order_by_engine('Automatic', @p_out); 
-select @p_out; 
--- 19:11:01	CALL SP_order_by_engine('Automatic', @p_out)	Error Code: 1054. Unknown column 'p_asc_desc' in 'field list'	0.0026 sec
--- Nota para la tutora: este no me anda me trae null
+CALL SP_GetModelByTransmission('automatic');
 
-select * from engine
-order by transmission;
-/*if p_asc_desc = 'ASC' then 
-select *  from engine order by p_transmission ASC;
-else
-select * from engine order by p_transmission DESC;
-end if;*/
--- ------
 
--- Tercer prueba: usada como test 
+-- Consulta Original 
+SELECT m.description AS model_description
+    FROM engine e
+    INNER JOIN model m ON e.id_model = m.id_model
+    WHERE e.transmission = p_transmission;
+
+-- Tercer prueba: usada como test. 
+-- Esto fue una simple prueba para ver como funcionaban los SP en la tabla Engine
 DROP PROCEDURE IF EXISTS SP_general_information;
 DELIMITER // 
 CREATE PROCEDURE SP_general_information (in c char(10), in p int, ca int)
@@ -64,10 +63,13 @@ delimiter //
 call SP_general_information(10, 552, 4961);
 
 
+
+/*
 -- Forth Procedures:
+-- 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS calcular_max_min_media$$
-CREATE PROCEDURE calcular_max_min_media(
+DROP PROCEDURE IF EXISTS sp_calcular_max_min_media$$
+CREATE PROCEDURE sp_calcular_max_min_media(
   IN capacity int(10),
     OUT maximo int(255),
   OUT minimo varchar(50),
@@ -99,17 +101,12 @@ SELECT @maximo, @minimo, @media;
 -- Consulta
 select capacity
 from engine;
--- -----
 
+-- DROP PROCEDURE sp_calcular_max_min_media;
 
--- NOTA: para la tutora, este no pude crear un procedure, me da error al usar el * y leght 
-select *,
-LENGTH(id_model) AS LengthOfName
-FROM model;
--- DROP PROCEDURE SP_LENGHT_AMOUNT_PER_MODEL;
+*/
 
-
-
+-- --------------------------------------------------
 
 /*
 -- Origial syntaxis 
