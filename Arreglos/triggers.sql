@@ -1,11 +1,6 @@
-USE vehicledb;
+USE vehicledbs;
 
--- Personal notes
--- Insert: Used to enter new records
--- Update: Contains both previous and new records. Update is the only one that shows new and old simultaneously.
--- Delete: Contains old records because the information has been deleted
-
-DROP TABLE IF EXISTS LOG_AUDIT;
+drop table if  exists LOG_AUDIT;
 CREATE TABLE IF NOT EXISTS LOG_AUDIT
 (
 id_log INT AUTO_INCREMENT ,
@@ -17,7 +12,7 @@ PRIMARY KEY (id_log)
 )
 ;
 
-DROP TABLE IF EXISTS LOG_AUDIT_2;
+drop table if  exists LOG_AUDIT_2;
 CREATE TABLE IF NOT EXISTS LOG_AUDIT_2 
 (
 id_log INT AUTO_INCREMENT ,
@@ -29,7 +24,8 @@ date_ins DATE ,
 PRIMARY KEY (id_log)
 )
 ;
-SELECT * FROM variant;
+select * from variant;
+
 
 -- CREATE TRIGGER INSERT
 -- Primer trigger
@@ -48,28 +44,26 @@ DELIMITER //
 
 SELECT * FROM variant ;
 SELECT * FROM log_audit;
-SELECT * FROM log_audit_2;
 
--- Second trigger 
-DROP TRIGGER IF EXISTS TRG_LOG_VARIANT_2; 
+-- Segundo trigger 
+DROP TRIGGER IF EXISTS TRG_LOG_VARIANT_2 
 DELIMITER //
-CREATE TRIGGER TRG_LOG_VARIANT_2 
-BEFORE INSERT ON vehicledb.variant
-FOR EACH ROW
-BEGIN
-INSERT INTO LOG_AUDIT_2 (newInsert_oldInsert, insert_variant , variant_table , user, date_ins)
-VALUES (CONCAT('newInsert:', NEW.description, '- oldInsert:', 'variant'), 'INSERT', 'variant', CURRENT_USER(), NOW());
-END//
+create trigger TRG_LOG_VARIANT_2 
+before INSERT on vehicledbs.variant
+for each row
+begin
+insert into LOG_AUDIT_2 (DESCRIPTION, insert_variant , variant_table , variant_table, user, date_ins)
+values ( new.description, new.id_variant, 'INSERT', 'variant', CURRENT_USER() , NOW());
+end//
 DELIMITER ; 
 
 
--- SYNTAX 
+-- SINTAXYS 
 SELECT * FROM log_audit ;
 SELECT * FROM log_audit_2 ;
 SELECT CURRENT_DATE();
-SELECT CURRENT_TIMESTAMP();
-SELECT CURRENT_DATETIME();
-SELECT * FROM model;
+SELECT TIMESTAMP();
+select * from model;
 
 -- CREATE TRIGGER UPDATE
 -- Third trigger 
@@ -86,31 +80,32 @@ DELIMITER //
 
 SELECT * FROM variant ;
 UPDATE vehicledb.variant 
-SET DESCRIPTION = 'Aventator Roadster' 
-WHERE ID_VARIANT = 8;
+SET DESCRIPTION = 'Aventator-Roadster' 
+WHERE ID_VARIANT = -- ID_VARIANT_NUMBER;
 SELECT * FROM LOG_AUDIT_2 ;
 
--- Fourth trigger 
-DROP TRIGGER IF EXISTS TRG_LOG_VARIANT_4; 
+
+-- QUARTO trigger 
+DROP TRIGGER IF EXISTS TRG_LOG_VARIANT_4 
 DELIMITER //
-CREATE TRIGGER TRG_LOG_VARIANT_4 
-AFTER UPDATE ON vehicledb.variant
-FOR EACH ROW
-BEGIN
-INSERT INTO LOG_AUDIT_2 (id_variant, description, insert_variant , variant_table , user, date_ins)
-VALUES CONCAT('New field:',NEW.description, '- Old field:',OLD.description),
-        NEW.id_variant, 
-        'UPDATE',
-        'VARIANT' ,
-        CURRENT_USER() , 
-        NOW());
-END//
+create trigger TRG_LOG_VARIANT_4 
+AFTER UPDATE on vehicledbs.variant
+for each row
+begin
+insert into LOG_AUDIT_2 (id_variant, description, insert_variant , variant_table , user, date_ins)
+VALUES (CONCAT( 'New field:',NEW.description, '- Old field:',OLD.description),
+				new.id_variant, 
+                'UPDATE',
+                'VARIANT' ,
+                CURRENT_USER() , 
+                CURRENT_TIMESTAMP());
+end//
 DELIMITER ; 
 
-UPDATE vehicledb.variant 
-SET VARIANT = '' 
-WHERE ID_VARIANT = ; --  ID_VARIANT_NUMBER;
-SELECT * FROM log_audit_2;
+UPDATE vehicledbs.variant 
+SET VARIANT = -- '' 
+WHERE ID_VARIANT = -- ID_VARIANT_NUMERO;
+select * from log_audit_2
 
 -- CREATE TRIGGER delete
 -- Fifth trigger 
@@ -151,3 +146,9 @@ VALUES ( CONCAT(',old.description,', OLD.description),
         CURRENT_TIMESTAMP());
 END//
 DELIMITER ; 
+
+
+-- INSERT INFO USING TRIGGER: NOTA PARA LA TUTORA: NO PUEDO INGRESAR LOS NUEVOS DATOS y la unica que me anda es el trigger 3
+
+INSERT INTO variant (`DESCRIPTION`, `ID_VARIANT`) VALUES (); -- HURACAN RWD(VARIANT). LAMBORGHINI (BRAND)
+INSERT INTO variant (`DESCRIPTION`, `ID_VARIANT`) VALUES (); -- DBX STRAIGHT-SIX SUV(VARIANT), ASTON MARTIN(BRAND)

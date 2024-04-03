@@ -1,4 +1,4 @@
-USE vehicledb; 
+USE vehicledbs; 
 /*
 Function fue creada para traer un valor. 
 1. FN_count_fuel_models: pasando los parametros correspondientes puedo saber cuantos vehiculos hay en total con un fuel pasado por parametro
@@ -94,4 +94,3 @@ select FN_by_model_name('%DB_%');
 -- Original syntaxis 
 Select count(*) from model
 where description like '%DB_%'
-

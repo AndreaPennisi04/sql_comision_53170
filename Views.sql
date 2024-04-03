@@ -8,7 +8,7 @@ drescription_id_model_id_brand
 */
 
 /*
-CREATE VIEW VW_DRESCRIPTION_ID_MODEL_ID_BRAND AS (
+CREATE OR REPLACE VIEW VW_DRESCRIPTION_ID_MODEL_ID_BRAND AS (
 select 
 distinct
 b.id_brand, m.id_model, v.description
@@ -24,30 +24,30 @@ select b.id_brand, m.id_model, v.description from VIEW VW_DRESCRIPTION_ID_MODEL_
 
 */
 /*
-select count(*) from model; -- 29
-select count(*) from variant; -- 69
-select count(*) from fuel; -- 4
-select count(*) from engine; -- 66
+select count(*) from model; 
+select count(*) from variant; 
+select count(*) from fuel; 
+select count(*) from engine; 
 */
 
 
 -- CREATE VIEW
  /*
-CREATE OR REPLACE VW_brand
+CREATE OR REPLACE VIEW VW_brand
 
 AS SELECT * FROM BRAND;
 
 -- SELECT * FROM VW_brand;
 */
 
-/* CREATE VIEW VW_engine_variant
+/* CREATE OR REPLACE VIEW VW_engine_variant
 AS select * from engine_variant;
 
 -- select * from VW_engine_variant;
 */
 
 /*
-CREATE VIEW VW_feature
+CREATE OR REPLACE VIEW VW_feature
 
 AS Select * from feature;
 
@@ -55,7 +55,7 @@ AS Select * from feature;
 */
 
 /*
-CREATE VIEW VW_variant
+CREATE OR REPLACE VIEW  VW_variant
 
 AS select * from variant;
 
@@ -64,7 +64,7 @@ AS select * from variant;
 
  /*
 
-CREATE  VIEW VW_engine AS (
+CREATE OR REPLACE VIEW VW_engine AS (
 select * from engine 
 where transmission like 'A%'
 and id_engine = 49
@@ -75,7 +75,7 @@ and id_engine = 49
 
 
  /*
-CREATE OR REPLACE VW_fuel
+CREATE OR REPLACE VIEW VW_fuel
 
 AS select * from fuel;
 
@@ -91,7 +91,7 @@ AS select * from model;
 */
 
  /*
-CREATE VIEW VW_fuel AS 
+CREATE OR REPLACE VIEW VW_fuel AS 
             (select  id_fuel, description FROM fuel);
 
 -- select * from model; 
